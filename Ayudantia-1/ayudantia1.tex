@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath} % Necesario para el comando \dfrac
+\usepackage{amssymb}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem} % Required for customizing enumeration
+\usepackage{mathtools} % Necesario para PVI's con funciones por tramos
+\usepackage{textcomp}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[scr]{rsfso}
+\usepackage{listings}
+\usepackage{hyperref}
+\everymath{\displaystyle}
+
+\begin{document}
+
+    \begin{titlepage}
+        \centering
+        \includegraphics[width=0.3\textwidth]{../imgs/logo-uai-fic.png}
+        
+        \vspace{0.5cm}
+        \textbf{\fontsize{12}{24} Ayudantía 1 Estructura de datos}
+        
+        \vspace{0.5cm}
+        \textbf{\fontsize{12}{24}\selectfont Profesor: Sebastián Sáez San Juan}
+        
+        \begin{center}
+            \textbf{\fontsize{12}{24}\selectfont Ayudantes:}
+        \end{center}
+        \vspace{-0.8cm}
+        \begin{center}
+            \renewcommand{\arraystretch}{1.5}
+            \begin{tabular}{c}
+                Diego Duhalde \\ 
+                Benjamín Wiedmaier \\ 
+                Fernando Andrés Zamora Carrasco
+            \end{tabular}
+        \end{center}
+        \vspace{0cm}
+
+        % Ideal ocupar alt+z para que el texto que contenido en la misma ventana.
+        \begin{enumerate}
+            % EJERCICIO 1
+            \item Explique qué es un puntero y cómo se declara en C. Proporcione un ejemplo.
+            \item Describa la diferencia entre un puntero y una variable normal. 
+            ¿Qué ventajas ofrece el uso de punteros?
+            \item Explique qué es la aritmética de punteros y cómo se puede utilizar para recorrer un array.
+            \item ¿Qué es un puntero nulo y cuándo se debe utilizar?
+
+            % EJERCICIO 2
+            \item Escriba el código apropiado para resolver los siguientes ejercicios
+                \begin{enumerate}[label=\alph*)]
+                    \item Escriba un programa en C que declare un puntero a un entero, asigne un valor a esa variable a través del puntero e imprima el valor y la dirección de memoria.
+                    \item Escriba un programa en C que utilice punteros para intercambiar los valores de dos variables.
+                    \item Escriba un programa en C que utilice un puntero para recorrer un array y calcular la suma de sus elementos.
+                \end{enumerate}
+        \end{enumerate}
+    \end{titlepage}
+
+    \newpage
+        \begin{center}
+            \textbf{RESPUESTAS}
+        \end{center}
+
+        % Ideal ocupar alt+z para que el texto que contenido en la misma ventana.
+        \begin{enumerate}
+            % RESUPESTA 1
+            \item Un puntero es una variable cuyo contenido es una dirección de memoria, es decir, apunta a la ubicación donde se almacena otra variable. Se declara especificando el tipo de dato al que apuntará, seguido de un asterisco y el nombre del puntero. Un ejemplo puede ser el siguiente: \\
+            Tenemos una variable entera $a$, a la cuál podemos asignar un puntero $p$ de la siguiente forma: \lstinline[language=C]|int *p = &a;|
+
+            \item Una variable normal son aquellas que almacenan directamente un valor, como un número, un carácter, etc., mientras que un puntero almacena la dirección de memoria de otra variable. Las ventajas de usar punteros incluyen:
+            \begin{itemize}
+                \item Permiten el paso eficiente de grandes estructuras de datos a funciones sin necesidad de copiar toda la estructura.
+                \item Facilitan la creación y manipulación de estructuras de datos dinámicas como listas enlazadas, pilas y colas.
+                \item Permiten el acceso y modificación directa de memoria, lo cual puede ser útil en programación de bajo nivel y optimización de rendimiento.
+            \end{itemize}
+
+            \item La aritmética de punteros consiste en realizar operaciones (como suma o resta) sobre las direcciones de memoria contenidas en un puntero. Esto resulta muy útil para recorrer arrays, ya que permite acceder a elementos consecutivos de manera eficiente. Por ejemplo, si tenemos un array de enteros y un puntero apuntando al primer elemento, podemos incrementar el puntero para acceder a los siguientes elementos del array.
+            
+            \item Un puntero nulo es un puntero que no apunta a ninguna dirección de memoria válida. Se utiliza para indicar que el puntero no está inicializado o que no se le ha asignado una dirección de memoria. En C, se puede declarar un puntero nulo asignándole el valor \lstinline[language=C]|NULL|. Es útil para evitar errores de acceso a memoria no válida y para comprobar si un puntero ha sido inicializado correctamente.
+            
+            \item Los códigos que resuelven los problemas se encuentran en el repositorio del ramo en la rama de "Ayudantías". \href{https://github.com/otrab/EDA/tree/Ayudant%C3%ADas}{Link.}
+        \end{enumerate}
+
+\end{document}
