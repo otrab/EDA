@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.23)  23 MAR 2025 21:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.23)  24 MAR 2025 16:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/fer77/Documents/UAI/Ayudantías/EDA/Ayudantía-1/ayudantia1.tex
-(c:/Users/fer77/Documents/UAI/Ayudantías/EDA/Ayudantía-1/ayudantia1.tex
+**c:/Users/fer77/Documents/UAI/Ayudantías/EDA/Ayudantia-2/ayudantia2.tex
+(c:/Users/fer77/Documents/UAI/Ayudantías/EDA/Ayudantia-2/ayudantia2.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -315,8 +315,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count312
 \l__pdf_internal_box=\box58
-) (./ayudantia1.aux)
-\openout1 = `ayudantia1.aux'.
+) (./ayudantia2.aux)
+\openout1 = `ayudantia2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
@@ -391,9 +391,9 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 \c@lstlisting=\count319
 Package hyperref Info: Link coloring OFF on input line 14.
-(./ayudantia1.out) (./ayudantia1.out)
+(./ayudantia2.out) (./ayudantia2.out)
 \@outlinefile=\write3
-\openout3 = `ayudantia1.out'.
+\openout3 = `ayudantia2.out'.
 
 <../imgs/logo-uai-fic.png, id=4, 492.33937pt x 140.02313pt>
 File: ../imgs/logo-uai-fic.png Graphic file (type png)
@@ -411,38 +411,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [1
 
-{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../imgs/logo-uai-fic.png>] (c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
-) (c:/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-)
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.82 \end{document}
-                    [1{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./ayudantia1.aux)
+{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../imgs/logo-uai-fic.png>] (./ayudantia2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `ayudantia1.out' has not changed.
+Package rerunfilecheck Info: File `ayudantia2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13133 strings out of 473190
- 198402 string characters out of 5719979
- 785707 words of memory out of 5000000
- 36213 multiletter control sequences out of 15000+600000
- 564126 words of font info for 56 fonts, out of 8000000 for 9000
+ 12742 strings out of 473190
+ 194667 string characters out of 5719979
+ 602993 words of memory out of 5000000
+ 35841 multiletter control sequences out of 15000+600000
+ 563789 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,79p,553b,1314s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ayudantia1.pdf (2 pages, 99191 bytes).
+ 75i,7n,79p,318b,501s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on ayudantia2.pdf (1 page, 72853 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
+ 27 PDF objects out of 1000 (max. 8388607)
+ 17 compressed objects within 1 object stream
+ 3 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
