@@ -8,6 +8,7 @@ int main() {
 }
 
 void hola() {
-    printf("Hola\n");
+    static int contador = 1;  // Variable estática (persiste entre llamadas)
+    printf("%d: Hola\n", contador++);  // Imprime y aumenta el contador
     hola();     // Llamada recursiva sin condición base
 }
