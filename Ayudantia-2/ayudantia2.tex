@@ -91,18 +91,8 @@
                     \item $n^3 + n^2 + n$
                 \end{enumerate}
                 \end{multicols}
+                \newpage
                 \item ¿Cuál es la complejidad temporal de la siguiente función? Justifique su respuesta.
-                    \begin{lstlisting}[xleftmargin=-14.4em]
-                        int power(int x, int n) {
-                            if (n == 0)
-                                return -1;
-                            int temp = power(x, n/2);
-                            if (n % 2 == 0)
-                                return temp * temp;
-                            else
-                                return x * temp * temp;
-                        }
-                    \end{lstlisting}
                     \begin{lstlisting}[xleftmargin=-14.4em]
                         void invertir(int A[], int n) {
                             int B[n];
@@ -115,30 +105,7 @@
                             }
                         }
                     \end{lstlisting}
-                    \begin{lstlisting}[xleftmargin=-14.4em]
-                        void bubbleSort(int arr[], int n) {
-                            int temp;
-                            for (int i = 0; i < n-1; i++) {
-                                for (int j = 0; j < n-1-i; j++) {
-                                    if (arr[j] > arr[j+1]) {
-                                        temp = arr[j];
-                                        arr[j] = arr[j+1];
-                                        arr[j + 1] = temp;
-                                    }
-                                }
-                            }
-                        }
-                    \end{lstlisting}
                 \item ¿Cuál es la complejidad temporal y espacial de la siguiente función? Justifique su respuesta.
-                    \begin{lstlisting}[xleftmargin=-14.4em]
-                        int factorial(int n) {
-                            int result = 1;
-                            for (int i = 1; i <= n; i++) {
-                                result *= i;
-                            }
-                            return result;
-                        }
-                    \end{lstlisting}
                     \begin{lstlisting}[xleftmargin=-14.4em]
                         int LongestIncreasingSubsequence(int arr[], int n) {
                             int lis[n];
