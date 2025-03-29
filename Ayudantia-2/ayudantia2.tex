@@ -9,6 +9,7 @@
 \usepackage[scr]{rsfso}
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage{multicol}
 \everymath{\displaystyle}
 
 \begin{document}
@@ -18,27 +19,76 @@
         \includegraphics[width=0.3\textwidth]{../imgs/logo-uai-fic.png}
         
         \vspace{0.5cm}
-        \textbf{\fontsize{12}{24} Ayudantía 1 Estructura de datos}
+        \textbf{\fontsize{12}{24} Ayudantía 2 Estructura de datos}
         
         \vspace{0.5cm}
-        \textbf{\fontsize{12}{24}\selectfont Profesor: Sebastián Sáez San Juan}
+        \textbf{\fontsize{12}{24}\selectfont Profesores: Sebastián Sáez, Diego Ramos}
         
         \begin{center}
-            \textbf{\fontsize{12}{24}\selectfont Ayudantes:}
+            \textbf{\fontsize{12}{24}\selectfont Ayudantes: Diego Duhalde, Benjamín Wiedmaier, Fernando Zamora}
         \end{center}
-        \vspace{-0.8cm}
-        \begin{center}
-            \renewcommand{\arraystretch}{1.5}
-            \begin{tabular}{c}
-                Diego Duhalde \\ 
-                Benjamín Wiedmaier \\ 
-                Fernando Andrés Zamora Carrasco
-            \end{tabular}
-        \end{center}
-        \vspace{0cm}
+
+        \textbf{\fontsize{12}{24} Preparación para Prueba 1}
 
         \begin{enumerate}
-            \item placeholder.
+            \item Lenguaje C
+            \begin{enumerate}[label*=\arabic*.]
+                \item ¿Qué es el operador \texttt{sizeof}? ¿Cómo se utiliza?
+                \item ¿Qué es la aritmética de punteros? Proporcione un ejemplo.
+                \item Explique la diferencia entre pasar un argumento por valor y pasar un argumento por referencia.
+                \item Explique la diferencia entre una variable local y una variable global.
+                \item ¿Cual es la diferencia entre \& y * en C?
+                \item Indique la diferencia central entre la memoria estática (stack) y la memoria dinámica (heap).
+            \end{enumerate}    
+            \item Punteros
+            \begin{enumerate}[label*=\arabic*.]
+                \item ¿Qué es un puntero? ¿Cuál es la diferencia entre un puntero y una variable normal?
+                \item ¿Qué es un puntero nulo? ¿Para qué se utiliza?
+                \item ¿Qué es la aritmética de punteros? Proporcione un ejemplo.
+                \item Suponga que $p$ es un puntero de tipo float que almacena la dirección $0x845b342c0$. ¿A qué dirección corresponde el puntero $p+3$?
+            \end{enumerate}
+            \item Complejidad temporal y espacial
+            \begin{enumerate}[label*=\arabic*.]
+                \item Ordene las complejidades en notación $\Theta$:
+                \begin{multicols}{3}
+                \begin{enumerate}
+                    \item $n^2$
+                    \item $n^3$
+                    \item $n$
+                    \item $1$
+                    \item $\log n$
+                    \item $n \log n$
+                    \item $n^2 \log n$
+                    \item $n^2 + n$
+                    \item $n^2 + n^3$
+                    \item $n^3 + n^2$
+                    \item $n^3 + n$
+                    \item $n^3 + n^2 + n$
+                \end{enumerate}
+                \end{multicols}
+                \item ¿Cuál es la complejidad temporal de la siguiente función? Justifique su respuesta.
+                \begin{lstlisting}[language=C]
+                \end{lstlisting}
+                \item ¿Cuál es la complejidad temporal y espacial de la siguiente función? Justifique su respuesta.
+                \begin{lstlisting}[language=C]
+                \end{lstlisting}
+
+            \end{enumerate}
+            \item Recursión
+            \begin{enumerate}[label*=\arabic*.]
+                \item Escribe una función recursiva en C que calcule el $n$-ésimo término de la secuencia de Fibonacci. La secuencia de Fibonacci se define de la siguiente manera:
+
+                \[
+                F(0) = 0, \quad F(1) = 1
+                \]
+                
+                \[
+                F(n) = F(n-1) + F(n-2), \quad \text{para } n \geq 2
+                \]
+                
+                El programa debe solicitar al usuario un número entero $n$ y mostrar el $n$-ésimo término de la serie.
+                \item Ejecute la función anterior con argumento $n$ igual a 6, indicando todas las llamadas recursivas a la función Fibonacci y que retorna cada llamada.
+            \end{enumerate}
         \end{enumerate}
     \end{titlepage}
 
