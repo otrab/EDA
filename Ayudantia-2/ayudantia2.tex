@@ -7,11 +7,36 @@
 \usepackage{textcomp}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage[scr]{rsfso}
-\usepackage{listings}
+\usepackage{listingsutf8} % Agrega soporte para utf8 en listings
 \usepackage{hyperref}
 \usepackage{multicol}
 \everymath{\displaystyle}
 
+\lstset{
+    language=C,
+    inputencoding=utf8,
+    extendedchars=true,
+    basicstyle=\ttfamily\footnotesize,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    breaklines=true,
+    tabsize=1,
+    literate=
+        {ñ}{{\~n}}1
+        {Ñ}{{\~N}}1
+        {á}{{\'a}}1
+        {é}{{\'e}}1
+        {í}{{\'i}}1
+        {ó}{{\'o}}1
+        {ú}{{\'u}}1
+        {Á}{{\'A}}1
+        {É}{{\'E}}1
+        {Í}{{\'Í}}1
+        {Ó}{{\'Ó}}1
+        {Ú}{{\'Ú}}1
+}
 \begin{document}
 
     \begin{titlepage}
@@ -49,7 +74,7 @@
             \end{enumerate}
             \item Complejidad temporal y espacial
             \begin{enumerate}[label*=\arabic*.]
-                \item Ordene las complejidades en notación $\Theta$:
+                \item Ordene las complejidades en notación $\Theta$ de menor a mayor:
                 \begin{multicols}{3}
                 \begin{enumerate}
                     \item $n^2$
@@ -67,11 +92,75 @@
                 \end{enumerate}
                 \end{multicols}
                 \item ¿Cuál es la complejidad temporal de la siguiente función? Justifique su respuesta.
-                \begin{lstlisting}[language=C]
-                \end{lstlisting}
+                    \begin{lstlisting}[xleftmargin=-14.4em]
+                        int power(int x, int n) {
+                            if (n == 0)
+                                return -1;
+                            int temp = power(x, n/2);
+                            if (n % 2 == 0)
+                                return temp * temp;
+                            else
+                                return x * temp * temp;
+                        }
+                    \end{lstlisting}
+                    \begin{lstlisting}[xleftmargin=-14.4em]
+                        void invertir(int A[], int n) {
+                            int B[n];
+                            for (int i = 0; i < n; i++) {
+                                B[i] = A[i];
+                            }
+
+                            for (int i = 0; i < n; i++) {
+                                A[i] = B[n-1-i];
+                            }
+                        }
+                    \end{lstlisting}
+                    \begin{lstlisting}[xleftmargin=-14.4em]
+                        void bubbleSort(int arr[], int n) {
+                            int temp;
+                            for (int i = 0; i < n-1; i++) {
+                                for (int j = 0; j < n-1-i; j++) {
+                                    if (arr[j] > arr[j+1]) {
+                                        temp = arr[j];
+                                        arr[j] = arr[j+1];
+                                        arr[j + 1] = temp;
+                                    }
+                                }
+                            }
+                        }
+                    \end{lstlisting}
                 \item ¿Cuál es la complejidad temporal y espacial de la siguiente función? Justifique su respuesta.
-                \begin{lstlisting}[language=C]
-                \end{lstlisting}
+                    \begin{lstlisting}[xleftmargin=-14.4em]
+                        int factorial(int n) {
+                            int result = 1;
+                            for (int i = 1; i <= n; i++) {
+                                result *= i;
+                            }
+                            return result;
+                        }
+                    \end{lstlisting}
+                    \begin{lstlisting}[xleftmargin=-14.4em]
+                        int LongestIncreasingSubsequence(int arr[], int n) {
+                            int lis[n];
+                            for (int i = 0; i < n; i++)
+                                lis[i] = 1;
+                        
+                            for (int i = 1; i < n; i++) {
+                                for (int j = 0; j < i; j++) {
+                                    if (arr[i] > arr[j] && lis[i] < lis[j] + 1)
+                                        lis[i] = lis[j] + 1;
+                                }
+                            }
+                        
+                            int max = 0;
+                            for (int i = 0; i < n; i++) {
+                                if (lis[i] > max)
+                                    max = lis[i];
+                            }
+                        
+                            return max;
+                        }
+                    \end{lstlisting}
 
             \end{enumerate}
             \item Recursión
@@ -91,5 +180,177 @@
             \end{enumerate}
         \end{enumerate}
     \end{titlepage}
+
+    \newpage
+        \begin{center}
+            \textbf{RESPUESTAS}
+        \end{center}
+
+        \begin{enumerate}
+            \item Lenguaje C
+            \begin{enumerate}[label*=\arabic*.]
+                % 1.1
+                \item El operador \texttt{sizeof} es un operador en tiempo de compilación que se utilza para obtener el tamaño (en bytes) de una variable o tipo de dato. Un ejemplo de uso podría ser el siguiente:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    int x;
+                    printf("El tamaño de int es: %zu bytes\n", sizeof(int));
+                    printf("El tamaño de x es: %zu bytes\n", sizeof(x));
+                \end{lstlisting}
+                En este ejemplo, \lstinline[language=C]|sizeof(int)| devuelve el tamaño en bytes del tipo \lstinline[language=C]|int| y \lstinline[language=C]|sizeof(x)| devuelve el tamaño en bytes de la variable \lstinline[language=C]|x|.
+
+                % 1.2
+                \item La aritmética de punteros consiste en realizar operaciones (como suma, resta o diferencias) sobre punteros. Estas operaciones se ajustan automáticamente al tamaño del tipo de dato al que apunta el puntero. Un ejemplo podría ser:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    int arr[5] = {10, 20, 30, 40, 50};
+                    int *p = arr;  // p apunta al primer elemento de arr
+                    printf("Valor en *p: %d\n", *p);   // Imprime 10
+                    printf("Valor en *(p+1): %d\n", *(p+1));  // Imprime 20                    
+                \end{lstlisting}
+                Aquí, al sumar 1 a \lstinline[language=C]|p|, se mueve la dirección de memoria al siguiente elemento del arreglo, teniendo en cuenta el tamaño de un entero.
+
+                % 1.3
+                \item En el paso por valor, se pasa una copia del valor de la variable al argumento de la función. Esto significa que cualquier cambio realizado en el argumento dentro de la función no afecta la variable original. Por ejemplo:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    void incrementar(int x) {
+                        x = x + 1;
+                    }
+
+                    int main() {
+                        int a = 5;
+                        incrementar(a);
+                        printf("El valor de a es: %d\n", a); // Imprime 5
+                        return 0;
+                    }
+                \end{lstlisting}
+                En este caso, el valor de \lstinline[language=C]|a| no cambia porque se pasa una copia de su valor a la función.
+
+                En el paso por referencia, se pasa la dirección de memoria de la variable al argumento de la función. Esto permite que la función modifique directamente el valor de la variable original. Por ejemplo:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    void incrementar(int *x) {
+                        *x = *x + 1;
+                    }
+
+                    int main() {
+                        int a = 5;
+                        incrementar(&a);
+                        printf("El valor de a es: %d\n", a); // Imprime 6
+                        return 0;
+                    }
+                \end{lstlisting}
+                En este caso, el valor de \lstinline[language=C]|a| cambia porque se pasa su dirección de memoria a la función.
+
+                % 1.4
+                \item Una variable local es aquella que se declara dentro de una función o bloque y solo es accesible dentro de ese ámbito. Su tiempo de vida está limitado a la ejecución de la función o bloque en el que se declara. Por ejemplo:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    void funcion() {
+                        int x = 10; // Variable local
+                        printf("x: %d\n", x);
+                    }
+                \end{lstlisting}
+                En este caso, \lstinline[language=C]|x| solo existe mientras se ejecuta \lstinline[language=C]|funcion|.
+
+                Una variable global, en cambio, se declara fuera de cualquier función y es accesible desde cualquier parte del programa. Su tiempo de vida es el mismo que el del programa. Por ejemplo:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    int x = 10; // Variable global
+
+                    void funcion() {
+                        printf("x: %d\n", x);
+                    }
+                \end{lstlisting}
+                Aquí, \lstinline[language=C]|x| es accesible tanto dentro como fuera de \lstinline[language=C]|funcion|.
+
+                % 1.5
+                \item La diferencia entre \& y * en C radica en su uso y propósito:
+                \begin{itemize}
+                    \item \texttt{\&} (operador de dirección): Se utiliza para obtener la dirección de memoria de una variable. Por ejemplo:
+                    \begin{lstlisting}[xleftmargin=-14.47em, inputencoding=utf8]
+                        int x = 10;
+                        int *p = &x; // p almacena la dirección de x
+                    \end{lstlisting}
+                    Aquí, \lstinline[language=C]|&x| devuelve la dirección de memoria de la variable \lstinline[language=C]|x|.
+
+                    \item \texttt{*} (operador de desreferencia): Se utiliza para acceder al valor almacenado en la dirección de memoria a la que apunta un puntero. Por ejemplo:
+                    \begin{lstlisting}[xleftmargin=-14.47em, inputencoding=utf8]
+                        int x = 10;
+                        int *p = &x; // p almacena la dirección de x
+                        printf("Valor de x: %d\n", *p); // Imprime 10
+                    \end{lstlisting}
+                    Aquí, \lstinline[language=C]|*p| accede al valor almacenado en la dirección de memoria a la que apunta \lstinline[language=C]|p|.
+                \end{itemize}
+
+                % 1.6
+                \item La memoria estática (stack) es una región de memoria que se utiliza para almacenar variables locales y llamadas a funciones. Su tamaño es fijo y se gestiona automáticamente. Por otro lado, la memoria dinámica (heap) es una región de memoria que se utiliza para almacenar datos cuyo tamaño puede cambiar en tiempo de ejecución. Su gestión es manual, utilizando funciones como \lstinline[language=C]|malloc| y \lstinline[language=C]|free|. Por ejemplo:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    // Memoria estática
+                    void funcion() {
+                        int x = 10; // Variable en el stack
+                    }
+
+                    // Memoria dinámica
+                    void funcion() {
+                        int *p = (int *)malloc(sizeof(int)); // Variable en el heap
+                        *p = 10;
+                        free(p); // Liberar memoria
+                    }
+                \end{lstlisting}
+            \end{enumerate}
+
+            \item Punteros
+            \begin{enumerate}[label*=\arabic*.]
+                % 2.1
+                \item Un puntero es una variable que almacena la dirección de memoria de otra variable. La diferencia principal entre un puntero y una variable normal es que un puntero no almacena directamente un valor, sino la dirección donde se encuentra ese valor. Por ejemplo:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    int x = 10;
+                    int *p = &x; // p almacena la dirección de x
+                    printf("Valor de x: %d\n", x);   // Imprime 10
+                    printf("Valor de x usando puntero: %d\n", *p); // Imprime 10
+                \end{lstlisting}
+                En este caso, \lstinline[language=C]|p| almacena la dirección de \lstinline[language=C]|x|, y \lstinline[language=C]|*p| accede al valor almacenado en esa dirección.
+
+                % 2.2
+                \item Un puntero nulo es un puntero que no apunta a ninguna dirección de memoria válida. Se utiliza para indicar que el puntero no está inicializado o que no tiene un objetivo válido. En C, un puntero nulo se representa con la constante \lstinline[language=C]|NULL|. Por ejemplo:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    int *p = NULL; // p es un puntero nulo
+                    if (p == NULL) {
+                        printf("El puntero no apunta a ninguna dirección válida.\n");
+                    }
+                \end{lstlisting}
+                En este caso, \lstinline[language=C]|p| no apunta a ninguna dirección de memoria válida, lo que puede ser útil para evitar errores al intentar acceder a memoria no inicializada.
+
+                % 2.3
+                \item La aritmética de punteros también se puede utilizar para recorrer un string. Por ejemplo:
+                \begin{lstlisting}[xleftmargin=-12.1em, inputencoding=utf8]
+                    char str[] = "Hola";
+                    char *p = str;  // p apunta al primer carácter de str
+                    while (*p != '\0') {  // Recorre hasta encontrar el carácter nulo
+                        printf("%c\n", *p);
+                        p++;
+                    }
+                \end{lstlisting}
+                En este caso, \lstinline[language=C]|p| se incrementa para apuntar al siguiente carácter del string hasta llegar al carácter nulo \lstinline[language=C]|'\0'|, que indica el final del string. 
+                
+                % 2.4
+                \item En C, la dirección del puntero $p+3$ se calcula sumando $3 \times \text{sizeof(float)}$ a la dirección base $p$. Dado que la dirección base es $0x845b342c0$ y el tamaño de un \texttt{float} es típicamente 4 bytes, la dirección resultante será:
+
+                \[
+                p+3 = 0x845b342c0 + (3 \times 4) = 0x845b342c0 + 12 = 0x845b342cc
+                \]
+
+                Por lo tanto, la dirección del puntero $p+3$ es $0x845b342cc$.
+            \end{enumerate}
+
+            \item Complejidad temporal y espacial
+            \begin{enumerate}[label*=\arabic*.]
+                \item $1$
+            \end{enumerate}
+
+            \item Recursión
+            \begin{enumerate}[label*=\arabic*.]
+                \item                 
+                    \begin{lstlisting}
+                        
+                    \end{lstlisting}
+            \end{enumerate}
+        \end{enumerate}
 
 \end{document}
