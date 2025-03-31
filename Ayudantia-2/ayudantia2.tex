@@ -308,15 +308,67 @@
 
             \item Complejidad temporal y espacial
             \begin{enumerate}[label*=\arabic*.]
-                \item $1$
+                \item Las complejidades ordenadas de menor a mayor son
+                \begin{multicols}{3}
+                    \begin{enumerate}[leftmargin=-1em]
+                        \item $1 \equiv \Theta(1)$
+                        \item $\log(n) \equiv \Theta(\log(n))$
+                        \item $n \equiv \Theta(n)$
+                        \item $n\log(n)  \equiv \Theta(n\log(n))$
+                        \item $n^{2} \equiv \Theta(n^{2})$
+                        \item $n^{2} + n \equiv \Theta(n^{2})$
+                        \item $n^2 \log(n)  \equiv \Theta(n^{2}\log(n))$
+                        \item $n^{3} \equiv \Theta(n^{3})$
+                        \item $n^{3} + n \equiv \Theta(n^{3})$
+                        \item $n^{2} + n^{3} \equiv \Theta(n^{3})$
+                        \item $n^{3} + n^{2} \equiv \Theta(n^{3})$
+                        \item $n^{3} + n^{2} + n \equiv \Theta(n^{3})$
+                    \end{enumerate}
+                \end{multicols}
+
+                \item La complejidad temporal de la función \lstinline[language=C]|invertir| es $\Theta(n)$, ya que contiene dos bucles \lstinline[language=C]|for| que se ejecutan secuencialmente. El primer bucle copia los elementos del arreglo \lstinline[language=C]|A| al arreglo \lstinline[language=C]|B|, lo que toma $n$ iteraciones. El segundo bucle invierte los elementos del arreglo \lstinline[language=C]|B| y los copia de vuelta al arreglo \lstinline[language=C]|A|, lo que también toma $n$ iteraciones. Dado que los bucles no están anidados, la complejidad total es $\Theta(n)$.
+
+                \item La complejidad temporal de la función \lstinline[language=C]|LongestIncreasingSubsequence| es $\Theta(n^2)$. Esto se debe a que contiene un bucle anidado. El bucle externo recorre el arreglo de tamaño $n$, y para cada iteración del bucle externo, el bucle interno puede recorrer hasta $i$ elementos, donde $i$ es el índice actual del bucle externo. En el peor caso, el bucle interno recorre hasta $n$ elementos. El análisis detallado es el siguiente:
+
+                \begin{itemize}
+                    \item El primer bucle inicializa el arreglo \lstinline[language=C]|lis| con $1$ en cada posición, lo que toma $\Theta(n)$.
+                    \item El segundo bucle es anidado:
+                        \begin{itemize}
+                            \item El bucle externo se ejecuta $n-1$ veces (desde $i = 1$ hasta $i = n-1$).
+                            \item El bucle interno se ejecuta $j$ veces para cada iteración del bucle externo, donde $j$ varía desde $0$ hasta $i-1$. En el peor caso, el número total de iteraciones del bucle interno es:
+                            \[
+                            \sum_{i=1}^{n-1} i = \frac{(n-1)n}{2} = \Theta(n^2)
+                            \]
+                        \end{itemize}
+                    \item El último bucle encuentra el valor máximo en el arreglo \lstinline[language=C]|lis|, lo que toma $\Theta(n)$.
+                \end{itemize}
+
+                Por lo tanto, la complejidad temporal total es $\Theta(n^2)$.
+
+                La complejidad espacial de la función es $\Theta(n)$, ya que utiliza un arreglo auxiliar \lstinline[language=C]|lis| de tamaño $n$ para almacenar los valores de las subsecuencias crecientes.
             \end{enumerate}
 
             \item Recursión
             \begin{enumerate}[label*=\arabic*.]
-                \item                 
-                    \begin{lstlisting}
-                        
-                    \end{lstlisting}
+                \item Un código de ejemplo para calcular el $n$-ésimo término de la secuencia de Fibonacci en C es el siguiente:
+                \begin{lstlisting}[xleftmargin=-9.6em, inputencoding=utf8]
+                #include <stdio.h>
+
+                int fibonacci(int n) {
+                    if (n == 0) return 0;
+                    if (n == 1) return 1;
+                    return fibonacci(n - 1) + fibonacci(n - 2);
+                }
+
+                int main() {
+                    int n;
+                    printf("Ingrese un número entero: ");
+                    scanf("%d", &n);
+                    printf("El término %d de la secuencia de Fibonacci es: %d\n", n, fibonacci(n));
+                    return 0;
+                }
+                \end{lstlisting}
+                Además, puede revisar el código que se encuentra en la carpeta de códigos de la ayudantía en el siguiente \href{https://github.com/otrab/EDA/tree/ayudant%C3%ADas}{link}.
             \end{enumerate}
         \end{enumerate}
 
