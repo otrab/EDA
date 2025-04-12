@@ -5,40 +5,40 @@
 // agrega un nuevo nodo al final y luego imprime los valores de los nodos.
 
 // Definición de una estructura para un nodo de lista enlazada
-struct n {
-    int x;           // Campo de datos
-    struct n *next;  // Puntero al siguiente nodo
+struct node {
+    int value;           // Campo de datos
+    struct node *next;   // Puntero al siguiente nodo
 };
 
 int main(int argc, char* argv[]) {
     // Crear el primer nodo
-    struct n *lista = (struct n *)malloc(sizeof(struct n));
-    lista->x = 5;        // Asignar valor al primer nodo
-    lista->next = NULL;  // Terminar la lista enlazada
+    struct node *list = (struct node *)malloc(sizeof(struct node));
+    list->value = 5;        // Asignar valor al primer nodo
+    list->next = NULL;      // Terminar la lista enlazada
 
     // Crear un nuevo nodo y asignar valores
-    struct n *nuevo_elemento = (struct n *)malloc(sizeof(struct n));
-    nuevo_elemento->x = 100; // Asignar valor al nuevo nodo
+    struct node *new_node = (struct node *)malloc(sizeof(struct node));
+    new_node->value = 100;  // Asignar valor al nuevo nodo
 
     // Recorrer la lista hasta el último nodo
-    struct n *it2 = lista;
-    while (it2->next != NULL) {
-        it2 = it2->next;
+    struct node *iterator = list;
+    while (iterator->next != NULL) {
+        iterator = iterator->next;
     }
     // Agregar el nuevo nodo al final
-    it2->next = nuevo_elemento;
-    nuevo_elemento->next = NULL;
+    iterator->next = new_node;
+    new_node->next = NULL;
 
     // Imprimir los valores de los nodos
-    struct n *temp = lista;
+    struct node *temp = list;
     while (temp != NULL) {
-        printf("%i\n", temp->x);
+        printf("%i\n", temp->value);
         temp = temp->next;
     }
 
     // Liberar la memoria asignada para evitar fugas de memoria
-    free(nuevo_elemento);
-    free(lista);
+    free(new_node);
+    free(list);
 
     return 0; // Indicar la terminación exitosa del programa
 }

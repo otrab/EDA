@@ -6,53 +6,53 @@
 // y luego imprime los valores de los nodos.
 
 // Definición de una estructura para un nodo de lista enlazada
-struct n {
-    int x;           // Campo de datos
-    struct n *next;  // Puntero al siguiente nodo
+struct node {
+    int value;           // Campo de datos
+    struct node *next;   // Puntero al siguiente nodo
 };
 
 int main(int argc, char* argv[]) {
     // Crear el primer nodo
-    struct n *lista = (struct n *)malloc(sizeof(struct n));
-    lista->x = 5;        // Asignar valor al primer nodo
-    lista->next = NULL;  // Terminar la lista enlazada
+    struct node *list = (struct node *)malloc(sizeof(struct node));
+    list->value = 5;        // Asignar valor al primer nodo
+    list->next = NULL;      // Terminar la lista enlazada
 
     // Crear el segundo nodo
-    struct n *segundo = (struct n *)malloc(sizeof(struct n));
-    segundo->x = 15;     // Asignar valor al segundo nodo
-    lista->next = segundo;
-    segundo->next = NULL;
+    struct node *second = (struct node *)malloc(sizeof(struct node));
+    second->value = 15;     // Asignar valor al segundo nodo
+    list->next = second;
+    second->next = NULL;
 
     // Crear el tercer nodo
-    struct n *tercero = (struct n *)malloc(sizeof(struct n));
-    tercero->x = 25;     // Asignar valor al tercer nodo
-    segundo->next = tercero;
-    tercero->next = NULL;
+    struct node *third = (struct node *)malloc(sizeof(struct node));
+    third->value = 25;      // Asignar valor al tercer nodo
+    second->next = third;
+    third->next = NULL;
 
     // Crear un nuevo nodo e insertar en una posición específica
-    struct n *nuevo_elemento3 = (struct n *)malloc(sizeof(struct n));
-    nuevo_elemento3->x = 40; // Asignar valor al nuevo nodo
+    struct node *new_node = (struct node *)malloc(sizeof(struct node));
+    new_node->value = 40; // Asignar valor al nuevo nodo
 
-    struct n *it3 = lista;
-    while (it3->next != NULL && it3->x < 20) {
-        it3 = it3->next;
+    struct node *iterator = list;
+    while (iterator->next != NULL && iterator->value < 20) {
+        iterator = iterator->next;
     }
-    struct n *tmp = it3->next;
-    it3->next = nuevo_elemento3;
-    nuevo_elemento3->next = tmp;
+    struct node *tmp = iterator->next;
+    iterator->next = new_node;
+    new_node->next = tmp;
 
     // Imprimir los valores de los nodos
-    struct n *temp = lista;
+    struct node *temp = list;
     while (temp != NULL) {
-        printf("%i\n", temp->x);
+        printf("%i\n", temp->value);
         temp = temp->next;
     }
 
     // Liberar la memoria asignada para evitar fugas de memoria
-    free(nuevo_elemento3);
-    free(tercero);
-    free(segundo);
-    free(lista);
+    free(new_node);
+    free(third);
+    free(second);
+    free(list);
 
     return 0; // Indicar la terminación exitosa del programa
 }

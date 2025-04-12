@@ -5,16 +5,16 @@
 // imprime la lista antes y después de eliminar el nodo con el valor 22.
 
 // Definición de una estructura para un nodo de lista enlazada
-struct n {
-    int x;           // Campo de datos
-    struct n *next;  // Puntero al siguiente nodo
+struct node {
+    int value;           // Campo de datos
+    struct node *next;   // Puntero al siguiente nodo
 };
 
 // Función para imprimir los valores de la lista enlazada
-void imprimir_lista(struct n *lista) {
-    struct n *temp = lista;
+void print_list(struct node *list) {
+    struct node *temp = list;
     while (temp != NULL) {
-        printf("%i -> ", temp->x);
+        printf("%i -> ", temp->value);
         temp = temp->next;
     }
     printf("NULL\n");
@@ -22,51 +22,51 @@ void imprimir_lista(struct n *lista) {
 
 int main(int argc, char* argv[]) {
     // Crear el primer nodo
-    struct n *lista = (struct n *)malloc(sizeof(struct n));
-    lista->x = 5;        // Asignar valor al primer nodo
-    lista->next = NULL;  // Terminar la lista enlazada
+    struct node *list = (struct node *)malloc(sizeof(struct node));
+    list->value = 5;        // Asignar valor al primer nodo
+    list->next = NULL;      // Terminar la lista enlazada
 
     // Crear el segundo nodo
-    struct n *segundo = (struct n *)malloc(sizeof(struct n));
-    segundo->x = 15;     // Asignar valor al segundo nodo
-    lista->next = segundo;
-    segundo->next = NULL;
+    struct node *second = (struct node *)malloc(sizeof(struct node));
+    second->value = 15;     // Asignar valor al segundo nodo
+    list->next = second;
+    second->next = NULL;
 
     // Crear el tercer nodo
-    struct n *tercero = (struct n *)malloc(sizeof(struct n));
-    tercero->x = 22;     // Asignar valor al tercer nodo
-    segundo->next = tercero;
-    tercero->next = NULL;
+    struct node *third = (struct node *)malloc(sizeof(struct node));
+    third->value = 22;      // Asignar valor al tercer nodo
+    second->next = third;
+    third->next = NULL;
 
     // Crear el cuarto nodo
-    struct n *cuarto = (struct n *)malloc(sizeof(struct n));
-    cuarto->x = 30;      // Asignar valor al cuarto nodo
-    tercero->next = cuarto;
-    cuarto->next = NULL;
+    struct node *fourth = (struct node *)malloc(sizeof(struct node));
+    fourth->value = 30;     // Asignar valor al cuarto nodo
+    third->next = fourth;
+    fourth->next = NULL;
 
     // Imprimir la lista antes de eliminar el nodo
     printf("Lista antes de eliminar el nodo con valor 22:\n");
-    imprimir_lista(lista);
+    print_list(list);
 
     // Eliminar el nodo con valor 22
-    struct n *it4 = lista;
-    while (it4->next != NULL && it4->next->x != 22) {
-        it4 = it4->next;
+    struct node *current = list;
+    while (current->next != NULL && current->next->value != 22) {
+        current = current->next;
     }
-    if (it4->next != NULL) { // Verificar si el nodo con valor 22 fue encontrado
-        struct n *tmp = it4->next->next; // Guardar el puntero al nodo siguiente al nodo que será eliminado
-        free(it4->next); // Liberar la memoria del nodo eliminado
-        it4->next = tmp; // Ajustar el puntero del nodo anterior
+    if (current->next != NULL) { // Verificar si el nodo con valor 22 fue encontrado
+        struct node *tmp = current->next->next; // Guardar el puntero al nodo siguiente al nodo que será eliminado
+        free(current->next); // Liberar la memoria del nodo eliminado
+        current->next = tmp; // Ajustar el puntero del nodo anterior
     }
 
     // Imprimir la lista después de eliminar el nodo
     printf("Lista después de eliminar el nodo con valor 22:\n");
-    imprimir_lista(lista);
+    print_list(list);
 
     // Liberar la memoria asignada para evitar fugas de memoria
-    free(cuarto);
-    free(segundo);
-    free(lista);
+    free(fourth);
+    free(second);
+    free(list);
 
     return 0; // Indicar la terminación exitosa del programa
 }

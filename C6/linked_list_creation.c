@@ -2,24 +2,24 @@
 #include <stdio.h>  // Para printf
 
 // Definición de una estructura para un nodo de lista enlazada
-struct n {
-    int x;           // Campo de datos
-    struct n *next;  // Puntero al siguiente nodo
+struct node {
+    int value;           // Campo de datos
+    struct node *next;   // Puntero al siguiente nodo
 };
 
 int main(int argc, char* argv[]) {
     // Asignar memoria dinámicamente para un único nodo
-    struct n *lista = (struct n *)malloc(sizeof(struct n));
+    struct node *list = (struct node *)malloc(sizeof(struct node));
     
     // Asignar valores al nodo
-    lista->x = 5;        // Establecer el campo de datos en 5
-    lista->next = NULL;  // Establecer el puntero al siguiente nodo como NULL (fin de la lista)
+    list->value = 5;        // Establecer el campo de datos en 5
+    list->next = NULL;      // Establecer el puntero al siguiente nodo como NULL (fin de la lista)
     
     // Imprimir el valor del campo de datos
-    printf("%i\n", lista->x);
+    printf("%i\n", list->value);
     
     // Liberar la memoria asignada para evitar fugas de memoria
-    free(lista);
+    free(list);
 
     return 0; // Indicar la terminación exitosa del programa
 }
