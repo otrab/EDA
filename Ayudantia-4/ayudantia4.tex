@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath} % Necesario para el comando \dfrac
+\usepackage{amssymb}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem} % Required for customizing enumeration
+\usepackage{mathtools} % Necesario para PVI's con funciones por tramos
+\usepackage{textcomp}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[scr]{rsfso}
+\usepackage{listingsutf8} % Agrega soporte para utf8 en listings
+\usepackage{hyperref}
+\usepackage{multicol}
+\everymath{\displaystyle}
+
+\lstset{
+    language=C,
+    inputencoding=utf8,
+    extendedchars=true,
+    basicstyle=\ttfamily\footnotesize,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    breaklines=true,
+    tabsize=1,
+    literate=
+        {ñ}{{\~n}}1
+        {Ñ}{{\~N}}1
+        {á}{{\'a}}1
+        {é}{{\'e}}1
+        {í}{{\'i}}1
+        {ó}{{\'o}}1
+        {ú}{{\'u}}1
+        {Á}{{\'A}}1
+        {É}{{\'E}}1
+        {Í}{{\'Í}}1
+        {Ó}{{\'Ó}}1
+        {Ú}{{\'Ú}}1
+}
+
+\begin{document}
+
+    \begin{titlepage}
+        \centering
+        \includegraphics[width=0.3\textwidth]{../imgs/logo-uai-fic.png}
+        
+        \vspace{0.5cm}
+        \textbf{\fontsize{12}{24} Ayudantía 4 Estructura de datos}
+        
+        \vspace{0.5cm}
+        \textbf{\fontsize{12}{24}\selectfont Profesores: Sebastián Sáez, Diego Ramos}
+        
+        \begin{center}
+            \textbf{\fontsize{12}{24}\selectfont Ayudantes: Diego Duhalde, Benjamín Wiedmaier, Fernando Zamora}
+        \end{center}
+
+        \begin{enumerate}
+            % EJERCICIO 1
+            \item Explique qué es una función hash y por qué es fundamental que ésta distribuya los datos de forma \emph{uniforme} en una tabla hash. En su respuesta, mencione ejemplos de aplicaciones en el mundo real y los criterios que debe cumplir una “buena” función hash.
+            
+            % EJERCICIO 2
+            \item Considere la función hash \( h(n) = n \mod 7 \) y el conjunto de números \(\{14,\, 3,\, 8,\, 22,\, 5,\, 16\}\).  
+            \begin{enumerate}[label=\alph*.]
+                % EJERCICIO 2.1
+                \item Inserte cada número en una tabla hash de 7 posiciones (inicialmente vacía) y escriba el estado de la tabla luego de cada inserción.
+                % EJERCICIO 2.2
+                \item ¿Qué sucede cuando se produce una colisión? Proponga una estrategia sencilla para resolverla.
+            \end{enumerate}
+            
+            % EJERCICIO 3
+            \item Compare las listas enlazadas simples con los arreglos (vectores). En su respuesta, destaque las ventajas del dinamismo, la rapidez en inserción y borrado que presentan las listas, así como sus desventajas en cuanto a acceso aleatorio y uso de memoria.
+            
+            % EJERCICIO 4
+            \item Escriba en C el proceso para insertar un nodo al final de una lista enlazada simple. 
+            
+            % EJERCICIO 5
+            \item Explique el funcionamiento del Selection Sort. ¿Cuál es la complejidad temporal en el peor caso y por qué?
+        
+            % EJERCICIO 6
+            \item Explique el algoritmo Merge Sort, haciendo énfasis en el proceso de división del arreglo y en la fusión ordenada de los subarreglos. Adicionalmente, dibuje (o describa) el árbol de recursión para un arreglo de 8 elementos.
+            
+            % EJERCICIO 7
+            \item Describa brevemente el funcionamiento de Quick Sort. ¿Por qué es importante la selección de un buen pivote y cómo puede afectar la complejidad temporal en el peor caso?
+        \end{enumerate}
+    \end{titlepage}
+
+    \newpage
+        \begin{center}
+            \textbf{RESPUESTAS}
+        \end{center}
+
+        \begin{enumerate}
+            % RESPUESTA 1
+            \item Una función hash es un procedimiento que toma una entrada (o clave) y la transforma en un valor numérico, llamado hash, que se utiliza como índice en una tabla hash. Es fundamental que esta función distribuya los datos de forma uniforme para minimizar las colisiones, es decir, situaciones en las que dos claves diferentes producen el mismo hash.\\
+            Una buena función hash debe ser rápida de calcular, generar valores distribuidos uniformemente y minimizar las colisiones. Ejemplos de aplicaciones incluyen sistemas de almacenamiento en caché, bases de datos y criptografía. Por ejemplo, en una base de datos, una función hash eficiente permite acceder rápidamente a los registros almacenados.
+
+            % RESPUESTA 2
+            \item 
+            \begin{enumerate}[label=\alph*.]
+                \item Estado de la tabla hash después de cada inserción:
+                \begin{itemize}
+                    \item Insertar \(14\): \(14 \mod 7 = 0\), tabla: \([14, -, -, -, -, -, -]\)
+                    \item Insertar \(3\): \(3 \mod 7 = 3\), tabla: \([14, -, -, 3, -, -, -]\)
+                    \item Insertar \(8\): \(8 \mod 7 = 1\), tabla: \([14, 8, -, 3, -, -, -]\)
+                    \item Insertar \(22\): \(22 \mod 7 = 1\), colisión en posición 1.
+                    \item Insertar \(5\): \(5 \mod 7 = 5\), tabla: \([14, 8, -, 3, -, 5, -]\)
+                    \item Insertar \(16\): \(16 \mod 7 = 2\), tabla: \([14, 8, 16, 3, -, 5, -]\)
+                \end{itemize}
+
+                \item Cuando se produce una colisión, como en el caso de \(22\), se puede usar una estrategia de resolución como la \textbf{encadenamiento} (listas enlazadas en cada posición) o \textbf{sondeo lineal} (buscar la siguiente posición vacía en la tabla).
+            \end{enumerate}
+            
+            % RESPUESTA 3
+            \item Las listas enlazadas simples y los arreglos (vectores) tienen diferencias significativas en su estructura y comportamiento. Las listas enlazadas son dinámicas, lo que significa que pueden crecer o reducirse en tamaño según sea necesario, mientras que los arreglos tienen un tamaño fijo una vez definidos.\\
+            Además, las listas enlazadas permiten inserciones y eliminaciones rápidas en cualquier posición, ya que solo requieren ajustar los punteros, mientras que en los arreglos estas operaciones pueden ser costosas debido al desplazamiento de elementos.\\
+            Sin embargo, los arreglos ofrecen acceso aleatorio a cualquier elemento en tiempo constante \(O(1)\), mientras que en las listas enlazadas el acceso es secuencial, con una complejidad de \(O(n)\). En términos de uso de memoria, las listas enlazadas requieren memoria adicional para almacenar los punteros, lo que puede ser una desventaja en comparación con los arreglos.
+            
+            % RESPUESTA 4
+            \item Revise la implementación del código en la rama de ayudantías en el repositorio del curso. \href{https://github.com/otrab/EDA/tree/ayudant%C3%ADas}{Link.}
+            
+            % RESPUESTA 5
+            \item El algoritmo de Selection Sort funciona seleccionando repetidamente el elemento más pequeño (o más grande, dependiendo del orden deseado) de la parte no ordenada del arreglo y colocándolo en su posición correcta en la parte ordenada. El proceso se repite hasta que todo el arreglo esté ordenado.
+
+            El procedimiento es el siguiente:
+            \begin{enumerate}
+                \item Dividir el arreglo en dos partes: una parte ordenada (inicialmente vacía) y una parte no ordenada.
+                \item Encontrar el elemento más pequeño en la parte no ordenada.
+                \item Intercambiar este elemento con el primer elemento de la parte no ordenada.
+                \item Mover el límite entre las partes ordenada y no ordenada hacia la derecha.
+                \item Repetir los pasos anteriores hasta que la parte no ordenada esté vacía.
+            \end{enumerate}
+
+            La complejidad temporal en el peor caso es \(O(n^2)\), donde \(n\) es el número de elementos en el arreglo. Esto se debe a que el algoritmo realiza \(n - 1\) comparaciones en la primera iteración, \(n - 2\) en la segunda, y así sucesivamente, lo que suma aproximadamente \(\frac{n(n-1)}{2}\) comparaciones. Aunque es simple de implementar, no es eficiente para arreglos grandes.
+            
+            % RESPUESTA 6
+            \item El algoritmo Merge Sort es un algoritmo de ordenamiento basado en el paradigma de divide y vencerás. Funciona dividiendo el arreglo en mitades hasta que cada subarreglo tenga un solo elemento (o ninguno), y luego fusionando estos subarreglos de manera ordenada para formar el arreglo final ordenado.
+
+            El proceso se puede describir en los siguientes pasos:
+            \begin{enumerate}
+                \item Dividir el arreglo en dos mitades de manera recursiva hasta que cada subarreglo tenga un solo elemento.
+                \item Fusionar los subarreglos ordenados en un solo arreglo ordenado. Esto se realiza comparando los elementos de los subarreglos y seleccionando el menor (o mayor, dependiendo del orden deseado) en cada paso.
+            \end{enumerate}
+
+            El árbol de recursión para un arreglo de 8 elementos sería el siguiente:
+            \[
+            \begin{array}{c}
+            \text{[A, B, C, D, E, F, G, H]} \\
+            \downarrow \\
+            \text{[A, B, C, D]} \quad \text{[E, F, G, H]} \\
+            \downarrow \\
+            \text{[A, B]} \quad \text{[C, D]} \quad \text{[E, F]} \quad \text{[G, H]} \\
+            \downarrow \\
+            \text{[A]} \quad \text{[B]} \quad \text{[C]} \quad \text{[D]} \quad \text{[E]} \quad \text{[F]} \quad \text{[G]} \quad \text{[H]} \\
+            \end{array}
+            \]
+
+            La complejidad temporal de Merge Sort es \(O(n \log n)\) en el peor caso, ya que el arreglo se divide en \(\log n\) niveles y en cada nivel se realizan \(O(n)\) operaciones para fusionar los subarreglos.
+            
+            % RESPUESTA 7
+            \item El algoritmo Quick Sort es un método de ordenamiento basado en el paradigma de divide y vencerás. Funciona seleccionando un elemento como pivote y particionando el arreglo en dos subarreglos: uno con elementos menores al pivote y otro con elementos mayores. Luego, se aplica recursivamente el mismo procedimiento a los subarreglos.
+
+            El proceso se puede describir en los siguientes pasos:
+            \begin{enumerate}
+                \item Elegir un pivote (puede ser el primer elemento, el último, uno aleatorio o el elemento medio).
+                \item Reorganizar el arreglo de manera que todos los elementos menores al pivote queden a su izquierda y los mayores a su derecha (este paso se llama partición).
+                \item Aplicar recursivamente Quick Sort a los subarreglos izquierdo y derecho.
+            \end{enumerate}
+
+            La selección de un buen pivote es crucial para el rendimiento del algoritmo. Si el pivote divide el arreglo en partes aproximadamente iguales, la complejidad temporal promedio es \(O(n \log n)\). Sin embargo, si el pivote es el elemento más pequeño o más grande en cada partición, el algoritmo degenera a \(O(n^2)\) en el peor caso. Para evitar esto, se pueden usar estrategias como el pivote aleatorio o el pivote mediano de tres.
+        \end{enumerate}
+\end{document}
