@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
     new_node->value = 40; // Asignar valor al nuevo nodo
 
     struct node *iterator = list;
-    while (iterator->next != NULL && iterator->value < 20) {
+    while (iterator->next != NULL) {
         iterator = iterator->next;
     }
     struct node *tmp = iterator->next;
