@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath} % Necesario para el comando \dfrac
+\usepackage{amssymb}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem} % Required for customizing enumeration
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[scr]{rsfso}
+\usepackage{listingsutf8}
+\usepackage{hyperref}
+\usepackage{multicol}
+\everymath{\displaystyle}
+
+\lstset{
+    language=C,
+    inputencoding=utf8,
+    extendedchars=true,
+    basicstyle=\ttfamily\footnotesize,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    breaklines=true,
+    tabsize=1,
+    literate=
+        {ñ}{{\~n}}1
+        {Ñ}{{\~N}}1
+        {á}{{\'a}}1
+        {é}{{\'e}}1
+        {í}{{\'i}}1
+        {ó}{{\'o}}1
+        {ú}{{\'u}}1
+        {Á}{{\'A}}1
+        {É}{{\'E}}1
+        {Í}{{\'Í}}1
+        {Ó}{{\'Ó}}1
+        {Ú}{{\'Ú}}1
+}
+
+\begin{document}
+
+    \begin{titlepage}
+        \centering
+        \includegraphics[width=0.3\textwidth]{../imgs/logo-uai-fic.png}
+        
+        \vspace{0.5cm}
+        \textbf{\fontsize{12}{24} Ayudantía 5: Pilas y Colas}
+        
+        \vspace{0.5cm}
+        \textbf{\fontsize{12}{24}\selectfont Profesores: Sebastián Sáez, Diego Ramos}
+        
+        \begin{center}
+            \textbf{\fontsize{12}{24}\selectfont Ayudantes: Diego Duhalde, Benjamín Wiedmaier, Fernando Zamora}
+        \end{center}
+
+        \begin{enumerate}
+            % EJERCICIO 1
+            \item Defina qué es una pila, describa sus operaciones básicas (\texttt{push}, \texttt{pop}, \texttt{top}) y mencione la complejidad en tiempo de cada una.
+            
+            % EJERCICIO 2
+            \item Defina qué es una cola, describa sus operaciones básicas (\texttt{enqueue}, \texttt{dequeue}, \texttt{front}) y mencione la complejidad en tiempo de cada una.
+            
+            % EJERCICIO 3
+            \item Escriba en C la implementación de una pila usando un arreglo estático, incluyendo las funciones \texttt{push}, \texttt{pop} y \texttt{isEmpty}.
+            
+            % EJERCICIO 4
+            \item Escriba en C la implementación de una cola usando un arreglo, incluyendo las funciones \texttt{enqueue}, \texttt{dequeue} y \texttt{isFull}.
+            
+            % EJERCICIO 5
+            \item Dado el siguiente conjunto de operaciones sobre una pila vacía:
+            \[
+              \texttt{push(5)},\;\texttt{push(2)},\;\texttt{pop()},\;\texttt{push(9)},\;\texttt{top()},\;\texttt{push(1)},\;\texttt{pop()}
+            \]
+            muestre paso a paso el contenido de la pila y el valor devuelto por cada \texttt{pop()} y \texttt{top()}.
+
+            % EJERCICIO 6
+            \item Dado el siguiente conjunto de operaciones sobre una cola vacía:
+            \[
+              \texttt{enqueue(7)},\;\texttt{enqueue(3)},\;\texttt{dequeue()},\;\texttt{enqueue(4)},\;\texttt{front()},\;\texttt{dequeue()}
+            \]
+            muestre paso a paso el contenido de la cola y el valor devuelto por cada \texttt{dequeue()} y \texttt{front()}.
+        \end{enumerate}
+    \end{titlepage}
+
+    \newpage
+        \begin{center}
+            \textbf{RESPUESTAS}
+        \end{center}
+
+        \begin{enumerate}
+            % RESPUESTA 1
+            \item Una pila es una estructura de datos que sigue el principio LIFO (Last In, First Out), es decir, el último elemento en entrar es el primero en salir. Sus operaciones básicas son:
+
+            \begin{itemize}
+                \item \texttt{push(x)}: Inserta el elemento \texttt{x} en la parte superior de la pila. Complejidad: \(O(1)\).
+                \item \texttt{pop()}: Elimina el elemento en la parte superior de la pila. Complejidad: \(O(1)\).
+                \item \texttt{top()}: Devuelve el elemento en la parte superior de la pila sin eliminarlo. Complejidad: \(O(1)\).
+            \end{itemize}
+
+
+            % RESPUESTA 2
+            \item Una cola es una estructura de datos que sigue el principio FIFO (First In, First Out), es decir, el primer elemento en entrar es el primero en salir. Sus operaciones básicas son:
+
+            \begin{itemize}
+                \item \texttt{enqueue(x)}: Inserta el elemento \texttt{x} al final de la cola. Complejidad: \(O(1)\).
+                \item \texttt{dequeue()}: Elimina el elemento al frente de la cola. Complejidad: \(O(1)\).
+                \item \texttt{front()}: Devuelve el elemento al frente de la cola sin eliminarlo. Complejidad: \(O(1)\).
+            \end{itemize}
+
+
+            % RESPUESTA 3
+            \item Una posible implementación en C de una pila usando un arreglo estático la puede encontrar en la rama de ayudantías del repositorio del curso. \href{https://github.com/otrab/EDA/tree/ayudant%C3%ADas}{Link.}
+            
+            % RESPUESTA 4
+            \item Una posible implementación en C de una cola usando un arreglo la puede encontrar \href{https://github.com/otrab/EDA/tree/ayudant%C3%ADas}{aquí}.
+            
+            % RESPUESTA 5
+            \item El contenido de la pila y los valores devueltos son los siguientes:
+
+            \begin{center}
+            \begin{tabular}{|c|c|c|}
+            \hline
+            Operación & Contenido de la pila & Valor devuelto \\ \hline
+            \texttt{push(5)} & [5] & - \\ \hline
+            \texttt{push(2)} & [5, 2] & - \\ \hline
+            \texttt{pop()} & [5] & 2 \\ \hline
+            \texttt{push(9)} & [5, 9] & - \\ \hline
+            \texttt{top()} & [5, 9] & 9 \\ \hline
+            \texttt{push(1)} & [5, 9, 1] & - \\ \hline
+            \texttt{pop()} & [5, 9] & 1 \\ \hline
+            \end{tabular}
+            \end{center}
+
+            % RESPUESTA 6
+            \item El contenido de la cola y los valores devueltos son los siguientes:
+
+            \begin{center}
+            \begin{tabular}{|c|c|c|}
+            \hline
+            Operación & Contenido de la cola & Valor devuelto \\ \hline
+            \texttt{enqueue(7)} & [7] & - \\ \hline
+            \texttt{enqueue(3)} & [7, 3] & - \\ \hline
+            \texttt{dequeue()} & [3] & 7 \\ \hline
+            \texttt{enqueue(4)} & [3, 4] & - \\ \hline
+            \texttt{front()} & [3, 4] & 3 \\ \hline
+            \texttt{dequeue()} & [4] & 3 \\ \hline
+            \end{tabular}
+            \end{center}
+        \end{enumerate}
+\end{document}
