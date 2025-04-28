@@ -88,7 +88,170 @@
             % EJERCICIO 2
             \item Explique en cada caso cómo se puede insertar y eliminar elementos de una cola y una pila. ¿Qué complejidad tienen estas operaciones? ¿Cual opciones nos conviene elegir?
         \end{enumerate}
-
-
     \end{titlepage}
+
+    \newpage
+        \begin{center}
+            \textbf{RESPUESTAS}
+        \end{center}
+
+
+        \section*{\raggedright\large Ordenamiento}
+        \begin{enumerate}
+            \item Un algoritmo de ordenamiento es un procedimiento o conjunto de instrucciones que permite organizar los elementos de una estructura de datos en un orden específico, ya sea ascendente o descendente. Ejemplos de algoritmos de ordenamiento incluyen:
+
+            \begin{itemize}
+                \item \textbf{Selection Sort:} Encuentra el elemento más pequeño (o más grande) en cada iteración y lo coloca en su posición correcta. Complejidad en tiempo: \(O(n^2)\).
+                \item \textbf{Insertion Sort:} Construye el arreglo ordenado de forma incremental, insertando cada elemento en su posición correcta. Complejidad en tiempo: \(O(n^2)\) en el peor caso, \(O(n)\) en el mejor caso.
+                \item \textbf{Merge Sort:} Divide el arreglo en mitades, las ordena recursivamente y luego las combina. Complejidad en tiempo: \(O(n \log n)\).
+            \end{itemize}
+
+            \item A continuación, se muestran las iteraciones de los algoritmos de ordenamiento solicitados:
+
+            \begin{itemize}
+                \item \textbf{Selection Sort:}
+                \begin{enumerate}
+                    \item Iteración 1: Encuentra el menor elemento (1) y lo intercambia con el primer elemento. Resultado: \texttt{[1, 2, 9, 5, 5, 6]}.
+                    \item Iteración 2: Encuentra el siguiente menor elemento (2) y lo intercambia con el segundo elemento. Resultado: \texttt{[1, 2, 9, 5, 5, 6]}.
+                    \item Iteración 3: Encuentra el siguiente menor elemento (5) y lo intercambia con el tercer elemento. Resultado: \texttt{[1, 2, 5, 9, 5, 6]}.
+                \end{enumerate}
+
+                \item \textbf{Insertion Sort:}
+                \begin{enumerate}
+                    \item Iteración 1 (\(i=1\)): Inserta el segundo elemento (2) en su posición correcta. Resultado: \texttt{[2, 5, 9, 1, 5, 6]}.
+                    \item Iteración 2 (\(i=2\)): Inserta el tercer elemento (9) en su posición correcta. Resultado: \texttt{[2, 5, 9, 1, 5, 6]}.
+                    \item Iteración 3 (\(i=3\)): Inserta el cuarto elemento (1) en su posición correcta. Resultado: \texttt{[1, 2, 5, 9, 5, 6]}.
+                \end{enumerate}
+
+                \item \textbf{Bubble Sort:}
+                \begin{enumerate}
+                    \item Iteración 1: Compara e intercambia elementos adyacentes si están en el orden incorrecto. Resultado: \texttt{[2, 5, 1, 5, 6, 9]}.
+                    \item Iteración 2: Repite el proceso para los primeros \(n-1\) elementos. Resultado: \texttt{[2, 1, 5, 5, 6, 9]}.
+                    \item Iteración 3: Repite el proceso para los primeros \(n-2\) elementos. Resultado: \texttt{[1, 2, 5, 5, 6, 9]}.
+                \end{enumerate}
+            \end{itemize}
+        \end{enumerate}
+
+        \section*{\raggedright\large Búsqueda}
+        \begin{enumerate}
+            \item La búsqueda lineal consiste en recorrer el arreglo elemento por elemento hasta encontrar el valor deseado o llegar al final del arreglo. Complejidad:
+            \begin{itemize}
+                \item Peor caso: \(O(n)\) (el elemento no está o está al final).
+                \item Mejor caso: \(O(1)\) (el elemento está al inicio).
+                \item Caso promedio: \(O(n/2) \approx O(n)\).
+            \end{itemize}
+
+            La búsqueda binaria requiere que el arreglo esté ordenado. Divide el arreglo en mitades y compara el elemento central con el valor buscado, descartando la mitad donde no puede estar el valor. Complejidad:
+            \begin{itemize}
+                \item Peor caso: \(O(\log n)\) (el elemento está al final del proceso).
+                \item Mejor caso: \(O(1)\) (el elemento está en el centro inicial).
+                \item Caso promedio: \(O(\log n)\).
+            \end{itemize}
+
+            \item Para encontrar el número 3 en el arreglo \texttt{A = [1, 2, 3, 4, 5, 6, 7, 8, 9]} usando búsqueda binaria:
+            \begin{enumerate}
+                \item Paso 1: El rango inicial es \([1, 9]\). El elemento central es \(A[5] = 5\). Como \(3 < 5\), descartamos la mitad derecha.
+                \item Paso 2: El rango ahora es \([1, 4]\). El elemento central es \(A[2] = 2\). Como \(3 > 2\), descartamos la mitad izquierda.
+                \item Paso 3: El rango ahora es \([3, 3]\). El elemento central es \(A[3] = 3\). Encontramos el número buscado.
+            \end{enumerate}
+            El caso se encuentra más cerca del mejor caso, ya que el número fue encontrado en pocos pasos.
+        \end{enumerate}
+
+        \section*{\raggedright\large Listas y Hashing}
+        \begin{enumerate}
+            \item Una lista enlazada es una estructura de datos compuesta por nodos, donde cada nodo contiene un valor y un puntero al siguiente nodo en la lista. Ventajas y desventajas:
+            \begin{itemize}
+                \item Ventajas:
+                \begin{itemize}
+                    \item Inserciones y eliminaciones son más eficientes que en un arreglo, especialmente en posiciones intermedias.
+                    \item No requiere un tamaño fijo, puede crecer dinámicamente.
+                \end{itemize}
+                \item Desventajas:
+                \begin{itemize}
+                    \item Acceso secuencial: no se puede acceder directamente a un elemento por su índice.
+                    \item Mayor uso de memoria debido a los punteros.
+                \end{itemize}
+            \end{itemize}
+            Complejidad en tiempo:
+            \begin{itemize}
+                \item \texttt{insertar}: \(O(1)\) si se realiza al inicio o al final, \(O(n)\) en el peor caso.
+                \item \texttt{eliminar}: \(O(1)\) si se tiene acceso directo al nodo, \(O(n)\) en el peor caso.
+                \item \texttt{buscar}: \(O(n)\).
+            \end{itemize}
+
+            \item Operaciones en la lista enlazada \texttt{A = [1, 2, 3, 4, 5]}:
+            \begin{enumerate}
+                \item Insertar el número 6 al final:
+                \begin{itemize}
+                    \item Crear un nuevo nodo con valor 6.
+                    \item Ajustar el puntero del último nodo (5) para que apunte al nuevo nodo.
+                    \item Resultado: \texttt{[1, 2, 3, 4, 5, 6]}.
+                \end{itemize}
+                \item Eliminar el número 2:
+                \begin{itemize}
+                    \item Encontrar el nodo con valor 2.
+                    \item Ajustar el puntero del nodo anterior (1) para que apunte al nodo siguiente (3).
+                    \item Resultado: \texttt{[1, 3, 4, 5, 6]}.
+                \end{itemize}
+                \item Buscar el número 4:
+                \begin{itemize}
+                    \item Recorrer la lista nodo por nodo hasta encontrar el valor 4.
+                    \item Resultado: Nodo con valor 4 encontrado.
+                \end{itemize}
+            \end{enumerate}
+
+            \item Una tabla hash es una estructura de datos que utiliza una función hash para mapear claves a índices en un arreglo. Ventajas y desventajas:
+            \begin{itemize}
+                \item Ventajas:
+                \begin{itemize}
+                    \item Operaciones de búsqueda, inserción y eliminación son muy rápidas en promedio (\(O(1)\)).
+                    \item Ideal para grandes volúmenes de datos.
+                \end{itemize}
+                \item Desventajas:
+                \begin{itemize}
+                    \item Puede haber colisiones, lo que requiere técnicas de resolución.
+                    \item No mantiene el orden de los elementos.
+                \end{itemize}
+            \end{itemize}
+            Complejidad en tiempo:
+            \begin{itemize}
+                \item \texttt{insertar}: \(O(1)\) en promedio, \(O(n)\) en el peor caso.
+                \item \texttt{eliminar}: \(O(1)\) en promedio, \(O(n)\) en el peor caso.
+                \item \texttt{buscar}: \(O(1)\) en promedio, \(O(n)\) en el peor caso.
+            \end{itemize}
+
+            \item Inserción en la tabla hash de tamaño 10 con función \texttt{h(x) = x mod 10}:
+            \begin{itemize}
+                \item Insertar 12: \(h(12) = 2\). Colocar 12 en la posición 2.
+                \item Insertar 22: \(h(22) = 2\). Colisión. Resolver con encadenamiento o direccionamiento abierto.
+                \item Insertar 32: \(h(32) = 2\). Colisión. Resolver con la misma técnica.
+                \item Insertar 42: \(h(42) = 2\). Colisión. Resolver con la misma técnica.
+                \item Insertar 52: \(h(52) = 2\). Colisión. Resolver con la misma técnica.
+            \end{itemize}
+            Tipo de colisión: Todas las claves tienen el mismo índice. Resolución: Usar encadenamiento (listas enlazadas) o direccionamiento abierto (sondeo lineal, cuadrático, etc.).
+        \end{enumerate}
+
+        \section*{\raggedright\large Colas y Pilas}
+        \begin{enumerate}
+            \item Las principales diferencias entre una cola y una pila son:
+            \begin{itemize}
+                \item \textbf{Cola:} Sigue el principio FIFO (First In, First Out), es decir, el primer elemento en entrar es el primero en salir. Ejemplo cotidiano: una fila en un banco.
+                \item \textbf{Pila:} Sigue el principio LIFO (Last In, First Out), es decir, el último elemento en entrar es el primero en salir. Ejemplo cotidiano: una pila de platos.
+            \end{itemize}
+
+            \item Para insertar y eliminar elementos:
+            \begin{itemize}
+                \item \textbf{Cola:}
+                \begin{itemize}
+                    \item Inserción: Se realiza al final de la cola. Complejidad: \(O(1)\).
+                    \item Eliminación: Se realiza al inicio de la cola. Complejidad: \(O(1)\).
+                \end{itemize}
+                \item \textbf{Pila:}
+                \begin{itemize}
+                    \item Inserción: Se realiza en la parte superior de la pila. Complejidad: \(O(1)\).
+                    \item Eliminación: Se realiza en la parte superior de la pila. Complejidad: \(O(1)\).
+                \end{itemize}
+            \end{itemize}
+            La elección depende del caso de uso. Si necesitamos procesar elementos en el orden en que llegan, usamos una cola. Si necesitamos procesar el elemento más reciente primero, usamos una pila.
+        \end{enumerate}
 \end{document}

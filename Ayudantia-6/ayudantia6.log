@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.12) (preloaded format=pdflatex 2025.3.29)  27 APR 2025 18:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.12) (preloaded format=pdflatex 2025.3.29)  27 APR 2025 21:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -481,10 +481,58 @@ File: ../imgs/logo-uai-fic.png Graphic file (type png)
 Package pdftex.def Info: ../imgs/logo-uai-fic.png  used on input line 44.
 (pdftex.def)             Requested size: 150.14671pt x 42.70164pt.
 
+Overfull \hbox (0.15665pt too wide) in paragraph at lines 59--61
+[]\OT1/cmr/m/n/12 Defina qu^^Se es un algoritmo de ordenamiento, mencione al menos 3 algoritmos de ordenamiento
+ []
+
+
+Overfull \hbox (5.63147pt too wide) in paragraph at lines 77--79
+[]\OT1/cmr/m/n/12 Tenemos la siguiente lista enlazada: \OT1/cmtt/m/n/12 A = [1, 2, 3, 4, 5]\OT1/cmr/m/n/12 , aplique las siguientes operaciones:
+ []
+
+
 
 [1
 
-{/home/fer77/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map} <../imgs/logo-uai-fic.png>] (ayudantia6.aux)
+{/home/fer77/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map} <../imgs/logo-uai-fic.png>]
+
+[2]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 104.
+ (/home/fer77/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 104.
+ (/home/fer77/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (1.87587pt too wide) in paragraph at lines 123--124
+[]\OT1/cmr/m/n/12 Iteraci^^Son 3 ($\OML/cmm/m/it/12 i \OT1/cmr/m/n/12 = 3$): Inserta el cuarto elemento (1) en su posici^^Son correcta. Resultado:
+ []
+
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.141                 \item C
+                             aso promedio: \(O(n/2) \approx O(n)\). [1]
+Overfull \hbox (11.41695pt too wide) in paragraph at lines 151--153
+[]\OT1/cmr/m/n/12 Para encontrar el n^^Sumero 3 en el arreglo \OT1/cmtt/m/n/12 A = [1, 2, 3, 4, 5, 6, 7, 8, 9] \OT1/cmr/m/n/12 usando b^^Susqueda
+ []
+
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.188                     \item R
+                                 esultado: \texttt{[1, 2, 3, 4, 5, 6]}. [2]
+
+[3]
+
+[4] (ayudantia6.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -493,17 +541,17 @@ Package rerunfilecheck Info: File `ayudantia6.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 12934 strings out of 475467
- 199936 string characters out of 5766814
- 780996 words of memory out of 5000000
- 35768 multiletter control sequences out of 15000+600000
- 559442 words of font info for 38 fonts, out of 8000000 for 9000
+ 13048 strings out of 475467
+ 201329 string characters out of 5766814
+ 792996 words of memory out of 5000000
+ 35814 multiletter control sequences out of 15000+600000
+ 565208 words of font info for 60 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 75i,5n,79p,285b,497s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-Output written on ayudantia6.pdf (1 page, 63164 bytes).
+ 75i,5n,79p,411b,792s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/fer77/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on ayudantia6.pdf (6 pages, 139017 bytes).
 PDF statistics:
- 19 PDF objects out of 1000 (max. 8388607)
- 2 named destinations out of 1000 (max. 500000)
+ 120 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
