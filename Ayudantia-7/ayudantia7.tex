@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[scr]{rsfso}
+\usepackage{listingsutf8}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{forest}
+\everymath{\displaystyle}
+
+\lstset{
+    language=C,
+    inputencoding=utf8,
+    extendedchars=true,
+    basicstyle=\ttfamily\footnotesize,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    breaklines=true,
+    tabsize=1,
+    literate=
+        {ñ}{{\~n}}1
+        {Ñ}{{\~N}}1
+        {á}{{\'a}}1
+        {é}{{\'e}}1
+        {í}{{\'i}}1
+        {ó}{{\'o}}1
+        {ú}{{\'u}}1
+        {Á}{{\'A}}1
+        {É}{{\'E}}1
+        {Í}{{\'Í}}1
+        {Ó}{{\'Ó}}1
+        {Ú}{{\'Ú}}1
+}
+
+\begin{document}
+
+    \begin{titlepage}
+        \centering
+        \includegraphics[width=0.3\textwidth]{../imgs/logo-uai-fic.png}
+
+        \vspace{0.5cm}
+        \textbf{\fontsize{12}{24} Ayudantía 7: Árboles en C}
+
+        \vspace{0.5cm}
+        \textbf{\fontsize{12}{24}\selectfont Profesores: Sebastián Sáez, Diego Ramos}
+
+        \begin{center}
+            \textbf{\fontsize{12}{24}\selectfont Ayudantes: Diego Duhalde, Benjamín Wiedmaier, Fernando Zamora}
+        \end{center}
+        \begin{center}
+            \textbf{PREGUNTAS}
+        \end{center}
+        
+        \begin{enumerate}[leftmargin=*]
+            % EJERCICIO 1
+            \item Defina qué es un árbol binario y explique cómo se representa en memoria con nodos y punteros. Mencione la definición de altura de un árbol y de nodo hoja.
+            
+            % EJERCICIO 2
+            \item Escriba en C una función que permita insertar valores en un árbol binario de búsqueda (BST). La función debe tener la siguiente forma: \texttt{nodo* insert(nodo* node, int data)}.
+            
+            % EJERCICIO 3
+            \item Implemente en C la función \texttt{void inorder(nodo* root);} que recorra un BST en orden y muestre los datos con \texttt{printf}. ¿Cómo cambiaría para preorden y postorden?
+            
+            % EJERCICIO 4
+            \item Dado el siguiente fragmento de código de inserción en BST:
+            \begin{lstlisting}
+if (node == NULL) {
+    return newNode(data);
+}
+
+if (data < node->data) {
+    node->left = insert(node->left, data);
+} else {
+    node->right = insert(node->right, data);
+    return node;
+}
+            \end{lstlisting}
+            ¿Qué hace cada línea? Explique paso a paso.
+            
+            % EJERCICIO 5
+            \item Escriba la función \texttt{nodo* minValueNode(nodo* node);} que devuelva el nodo con el valor mínimo de un subárbol.
+            
+            % EJERCICIO 6
+            \item Analice el siguiente árbol y determine la salida de un recorrido inorden:
+            \[ \{10,\,5,\,15,\,3,\,7,\,12,\,18\}\]
+            
+            % EJERCICIO 7
+            \item Considere el árbol resultante de insertar en orden los valores \texttt{[8, 3, 10, 1, 6, 14, 4, 7, 13]}.
+            \begin{enumerate}[label=\alph*)]
+                \item Dibuje la estructura del BST.
+                \item ¿Cuál es el resultado de su recorrido postorden?
+            \end{enumerate}
+        \end{enumerate}
+    \end{titlepage}
+
+    \newpage
+        \begin{center}
+            \textbf{RESPUESTAS}
+        \end{center}
+
+        \begin{enumerate}
+            % RESPUESTA 1
+            \item Un árbol binario es una estructura de datos jerárquica en la que cada nodo tiene como máximo dos hijos, denominados hijo izquierdo e hijo derecho. Se representa en memoria mediante nodos que contienen un valor, un puntero al hijo izquierdo y un puntero al hijo derecho. La altura de un árbol es la longitud del camino más largo desde la raíz hasta una hoja. Un nodo hoja es un nodo que no tiene hijos.
+            
+            % RESPUESTA 2
+            \item La implementación del código la puede encontrar en la rama de ayudantías del repositorio del curso. \href{https://github.com/otrab/EDA/tree/ayudant%C3%ADas}{Link.}
+
+            % RESPUESTA 3
+            \item Sea $R$ la raíz, $I$ el subárbol izquierdo y $D$ el subárbol derecho, entonces, en inorder ($I$, $R$, $D$) se recorre primero el subárbol izquierdo, luego el nodo actual y finalmente el subárbol derecho. Luego, para preorder ($R$, $I$, $D$) se visita primero el nodo actual, luego el subárbol izquierdo y finalmente el subárbol derecho. Por último, en postorder ($I$, $D$, $R$) se recorre primero el subárbol izquierdo, luego el derecho y finalmente el nodo actual. La implementación del código la puede encontrar \href{https://github.com/otrab/EDA/tree/ayudant%C3%ADas}{aquí.}
+            
+            % RESPUESTA 4
+            \item El paso a paso es el siguiente:
+            \begin{enumerate}[label=\alph*)]
+                \item La primera línea verifica si el nodo actual es \texttt{NULL}. Si es así, significa que hemos encontrado la posición donde debe insertarse el nuevo nodo, por lo que se llama a la función \texttt{newNode(data)} para crear un nuevo nodo con el valor dado y se retorna.
+    
+                \item La segunda línea compara el valor \texttt{data} con el valor del nodo actual (\texttt{node->data}). Si \texttt{data} es menor, se procede a insertar el valor en el subárbol izquierdo llamando recursivamente a la función \texttt{insert} con \texttt{node->left}.
+    
+                \item La tercera línea maneja el caso en que \texttt{data} es mayor o igual al valor del nodo actual. En este caso, se procede a insertar el valor en el subárbol derecho llamando recursivamente a la función \texttt{insert} con \texttt{node->right}.
+    
+                \item Finalmente, se retorna el nodo actual (\texttt{node}) para mantener la estructura del árbol.
+            \end{enumerate}
+
+            % RESPUESTA 5
+            \item La implementación del código la puede encontrar en la rama de ayudantías del repositorio del curso. \href{https://github.com/otrab/EDA/tree/ayudant%C3%ADas}{Link.}
+            % RESPUESTA 6
+            \item La salida de un recorrido inorden para el árbol dado es: \texttt{3, 5, 7, 10, 12, 15, 18}. Esto se debe a que en un recorrido inorden, se visitan los nodos en el siguiente orden: subárbol izquierdo, nodo raíz, subárbol derecho.
+            
+            % RESPUESTA 7
+            \item 
+            \begin{enumerate}[label=\alph*)]
+                \item La estructura del BST resultante es la siguiente:
+                
+                \begin{center}
+                \begin{forest}
+                for tree={
+                    circle, draw, % forma y contorno de los nodos
+                    minimum size=1.5em, % tamaño mínimo
+                    inner sep=1pt,      % espacio interno
+                    s sep=1cm,        % separación entre subárboles
+                    l=1cm               % longitud de las ramas
+                }
+                [8
+                    [3
+                    [1]
+                    [6
+                        [4]
+                        [7]
+                    ]
+                    ]
+                    [10
+                    [,phantom] % para alinear bien el hijo izquierdo vacío
+                    [14
+                        [13]
+                    ]
+                    ]
+                ]
+                \end{forest}
+                \end{center}
+
+                \item El resultado del recorrido postorden es: \texttt{1, 4, 7, 6, 3, 13, 14, 10, 8}.
+            \end{enumerate}
+        \end{enumerate}
+\end{document}
