@@ -24,32 +24,28 @@ int max(int a, int b) {
     return (a > b) ? a : b;
 }
 
+// Función para calcular la altura de un nodo
+int height(struct node *n) {
+    if (n == NULL)
+        return 0;
+    return n->height;
+}
+
 // Función para realizar una rotación a la derecha
 struct node *rightRotate(struct node *y) {
     struct node *x = y->left;
     struct node *z = x->right;
 
+    // Realizar la rotación
     x->right = y;
     y->left = z;
 
-    y->height = max(y->left ? y->left->height : 0, y->right ? y->right->height : 0) + 1;
-    x->height = max(x->left ? x->left->height : 0, x->right ? x->right->height : 0) + 1;
+    // Actualizar las alturas
+    y->height = max(height(y->left), height(y->right)) + 1;
+    x->height = max(height(x->left), height(x->right)) + 1;
 
+    // Devolver la nueva raíz
     return x;
-}
-
-// Función para realizar una rotación a la izquierda
-struct node *leftRotate(struct node *x) {
-    struct node *y = x->right;
-    struct node *z = y->left;
-
-    y->left = x;
-    x->right = z;
-
-    y->height = max(y->left ? y->left->height : 0, y->right ? y->right->height : 0) + 1;
-    x->height = max(x->left ? x->left->height : 0, x->right ? x->right->height : 0) + 1;
-
-    return y;
 }
 
 // Función para imprimir el árbol en in-order
@@ -61,39 +57,30 @@ void inOrder(struct node *root) {
     }
 }
 
-int main() {
-    // Crear un árbol desbalanceado hacia la izquierda para demostrar la rotación a la derecha
-    struct node *root = newNode(50);
-    root->left = newNode(30);
-    root->left->left = newNode(10);
-    root->left->right = newNode(40);
+// Función para imprimir el árbol en pre-order
+void preOrder(struct node *root) {
+    if (root != NULL) {
+        printf("%d ", root->data); // Imprimir el valor del nodo actual
+        preOrder(root->left);      // Recorrer el subárbol izquierdo
+        preOrder(root->right);     // Recorrer el subárbol derecho
+    }
+}
 
-    printf("Árbol antes de la rotación a la derecha (in-order):\n");
-    inOrder(root);
+int main() {
+    // Crear un árbol desbalanceado hacia la izquierda
+    struct node *root = newNode(30);
+    root->left = newNode(20);
+    root->left->left = newNode(10);
+
+    printf("Árbol antes de la rotación a la derecha (pre-order):\n");
+    preOrder(root);
     printf("\n");
 
     // Realizar una rotación a la derecha
     root = rightRotate(root);
 
-    printf("Árbol después de la rotación a la derecha (in-order):\n");
-    inOrder(root);
-    printf("\n");
-
-    // Crear un árbol desbalanceado hacia la derecha para demostrar la rotación a la izquierda
-    root = newNode(10);
-    root->right = newNode(30);
-    root->right->left = newNode(20);
-    root->right->right = newNode(40);
-
-    printf("Árbol antes de la rotación a la izquierda (in-order):\n");
-    inOrder(root);
-    printf("\n");
-
-    // Realizar una rotación a la izquierda
-    root = leftRotate(root);
-
-    printf("Árbol después de la rotación a la izquierda (in-order):\n");
-    inOrder(root);
+    printf("Árbol después de la rotación a la derecha (pre-order):\n");
+    preOrder(root);
     printf("\n");
 
     return 0;
