@@ -130,4 +130,12 @@ int main(int argc, char* argv[]) {
     postorder(root);
     printf("\n");
     printf("\n");
+    
+    /* Ejercicio 5 */
+    printf("Ejercicio 5.\n");
+    printf("El valor mínimo del árbol es %d.\n", minValueNode(root));
+    printf("\n");
+    printf("Insertemos el valor 1 al árbol y veamos como se comporta la función.\n");
+    root = insert(root, 1);
+    printf("El valor mínimo del árbol es %d.\n", minValueNode(root));
 }
