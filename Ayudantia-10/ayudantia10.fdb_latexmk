@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1749476497.66165 "/home/fer77/EDA/Ayudantia-10/ayudantia10.tex" "ayudantia10.pdf" "ayudantia10" 1749476499.01123 0
+["pdflatex"] 1749476846.69662 "/home/fer77/EDA/Ayudantia-10/ayudantia10.tex" "ayudantia10.pdf" "ayudantia10" 1749476847.92209 0
   "../imgs/logo-uai-fic.png" 1742846110.89544 50651 6e7e6b8d0d12e05dd0365c1352c59dc3 ""
   "/home/fer77/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1747013547.79896 25810 93a880850a05862c259e45620aca4d4a ""
   "/home/fer77/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1743280098.23105 14064 bf6e82551ea143379efa199247c0b3bd ""
@@ -193,10 +193,10 @@
   "/home/fer77/.miktex/texmfs/install/tex/latex/url/url.sty" 1743279324.54911 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/home/fer77/.miktex/texmfs/install/tex/latex/xcolor/xcolor.sty" 1747012223.19467 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/home/fer77/.miktex/texmfs/install/tex/latex/xkeyval/xkeyval.sty" 1743279307.92054 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "/home/fer77/EDA/Ayudantia-10/ayudantia10.tex" 1749476497.17155 22186 309591f2a3b197a119bef28e16cc5861 ""
-  "ayudantia10.aux" 1749476498.90489 162 8041607b76d73e3dcbdb7e912bad98fd "pdflatex"
-  "ayudantia10.out" 1749476498.14655 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "ayudantia10.tex" 1749476497.17155 22186 309591f2a3b197a119bef28e16cc5861 ""
+  "/home/fer77/EDA/Ayudantia-10/ayudantia10.tex" 1749476844.88902 23267 c07d485fcaa366802303c20147e99229 ""
+  "ayudantia10.aux" 1749476847.81785 162 8041607b76d73e3dcbdb7e912bad98fd "pdflatex"
+  "ayudantia10.out" 1749476847.12451 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "ayudantia10.tex" 1749476844.88902 23267 c07d485fcaa366802303c20147e99229 ""
   (generated)
   "ayudantia10.aux"
   "ayudantia10.log"

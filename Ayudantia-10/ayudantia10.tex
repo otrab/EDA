@@ -194,10 +194,16 @@
         % RESPUESTA 1
         \item
           \begin{enumerate}[label=\alph*)]
-            \item El grado de un nodo es el número de hijos que tiene.
-            \item Un descendiente de un nodo es cualquier nodo que se encuentra en el subárbol cuya raíz es ese nodo. Un ancestro de un nodo es cualquier nodo en el camino desde la raíz hasta ese nodo (incluyendo la raíz, pero excluyendo el propio nodo).
-            \item Un camino en un árbol es una secuencia de nodos conectados por aristas consecutivas. La distancia entre dos nodos es el número de aristas en el camino más corto que los conecta.
-            \item Un árbol binario completo es aquel en el que todos los niveles, excepto posiblemente el último, están completamente llenos y todos los nodos están lo más a la izquierda posible. Un árbol binario perfecto es aquel en el que todos los niveles están completamente llenos.
+            \item La altura de un árbol es la longitud del camino más largo desde la raíz hasta una hoja. Se mide en número de aristas.
+            \item Un ancestro de un nodo es cualquier nodo en el camino desde la raíz hasta ese nodo. Un descendiente es cualquier nodo que se encuentra en el subárbol del nodo dado.
+            \item Una hoja es un nodo sin hijos, mientras que la raíz es el nodo superior del árbol, sin ancestros.
+            \item Un camino entre dos nodos es una secuencia de nodos conectados por aristas. La distancia entre dos nodos es el número de aristas en el camino más corto que los conecta.
+            \item Un árbol binario es un árbol en el que cada nodo tiene como máximo dos hijos. Un árbol binario autobalanceado es un árbol binario que mantiene su altura balanceada tras cada inserción o eliminación, garantizando operaciones eficientes.
+            \item Un arco es una conexión dirigida entre dos vértices en un grafo dirigido, mientras que una arista es una conexión no dirigida entre dos vértices en un grafo no dirigido.
+            \item Un ciclo en un grafo es un camino que comienza y termina en el mismo vértice sin repetir aristas. Un árbol es un grafo acíclico conectado.
+            \item Un grafo dirigido tiene aristas con una dirección específica, mientras que un grafo no dirigido tiene aristas sin dirección, permitiendo el movimiento en ambas direcciones.
+            \item Una matriz de adyacencia es una representación de un grafo donde las filas y columnas representan los vértices, y las celdas indican si existe una arista entre ellos. Una lista de adyacencia es una colección de listas donde cada lista contiene los vértices adyacentes a un vértice dado.
+            \item Un árbol de expansión mínima (MST) es un subgrafo de un grafo ponderado que conecta todos los vértices con el menor peso total posible, sin formar ciclos.
           \end{enumerate}
 
         % RESPUESTA 2
@@ -452,7 +458,6 @@
             \end{tikzpicture}
             \]
             Peso total: \(1 + 2 + 2 + 2 + 3 + 3 = 13\).
-            \newpage
 
             \item Aplicando el algoritmo de Prim desde el vértice \(A\):
             \begin{enumerate}
