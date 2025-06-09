@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.12) (preloaded format=pdflatex 2025.3.29)  2 JUN 2025 09:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.12) (preloaded format=pdflatex 2025.3.29)  9 JUN 2025 09:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -804,11 +804,11 @@ File: ../imgs/logo-uai-fic.png Graphic file (type png)
 <use ../imgs/logo-uai-fic.png>
 Package pdftex.def Info: ../imgs/logo-uai-fic.png  used on input line 48.
 (pdftex.def)             Requested size: 150.14671pt x 42.70164pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
  (/home/fer77/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
  (/home/fer77/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -823,14 +823,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.260             \]
+l.266             \]
                      [1]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.320             \]
+l.326             \]
                      [2]
 
 [3]
@@ -848,17 +848,17 @@ Package rerunfilecheck Info: File `ayudantia10.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 35913 strings out of 475467
- 769156 string characters out of 5766814
+ 35919 strings out of 475467
+ 769198 string characters out of 5766814
  1545149 words of memory out of 5000000
  58356 multiletter control sequences out of 15000+600000
  564473 words of font info for 57 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  136i,13n,138p,1641b,1798s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/fer77/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/fer77/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ayudantia10.pdf (8 pages, 161684 bytes).
+Output written on ayudantia10.pdf (8 pages, 165357 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 62 named destinations out of 1000 (max. 500000)
+ 155 PDF objects out of 1000 (max. 8388607)
+ 68 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
